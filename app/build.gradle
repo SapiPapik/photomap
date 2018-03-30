@@ -1,0 +1,81 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "anton.photomap"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [toothpick_registry_package_name: 'anton.photomap']
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+ext {
+    supportLibraryVersion = "26.1.0"
+    retrofitVersion = "2.2.0"
+    anko_version = "0.10.4"
+    moxyVersion = "1.4.6"
+    toothpickVersion = "1.0.6"
+    googleMapsVersion = "12.0.0"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.google.android.gms:play-services-maps:$googleMapsVersion"
+    implementation "com.google.android.gms:play-services-places:$googleMapsVersion"
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
+    //MVP Moxy
+    kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+    implementation "com.arello-mobile:moxy-app-compat:$moxyVersion"
+    //rxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.5'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    // Requery for for making SQL query
+    implementation 'io.requery:requery:1.4.1'
+    implementation 'io.requery:requery-android:1.4.1'
+    implementation 'io.requery:requery-kotlin:1.4.1'
+    kapt 'io.requery:requery-processor:1.4.1'
+    // Тулза для просмотра DB
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.1'
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.6.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    //DI
+    implementation "com.github.stephanenicolas.toothpick:toothpick-runtime:$toothpickVersion"
+    kapt "com.github.stephanenicolas.toothpick:toothpick-compiler:$toothpickVersion"
+    //Gson
+    implementation "com.google.code.gson:gson:2.8.1"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // Glide for image
+    implementation 'com.github.bumptech.glide:glide:4.3.1'
+}
+
+kapt {
+    generateStubs = true
+}

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">photomap</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="load_data">Загрузка данных</string>
+    <string name="please_wait">Пожалуйста, подождите</string>
+    <string name="obligation_field">Обязательное поле</string>
+    <string name="save">Сохранить</string>
+    <string name="photo_area">Фото местности: </string>
+    <string name="last_visit">Последнее посещение: </string>
+    <string name="latitude">Широта: </string>
+    <string name="longitude">Долгота: </string>
+    <string name="point_description">Описание точки: </string>
+</resources>
