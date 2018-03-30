@@ -99,7 +99,8 @@
             <ImageView
                 android:id="@+id/ivImagePoint"
                 android:layout_width="@dimen/image_width"
-                android:layout_height="@dimen/image_height" />
+                android:layout_height="@dimen/image_height"
+                android:scaleType="centerCrop" />
         </LinearLayout>
     </LinearLayout>
 
